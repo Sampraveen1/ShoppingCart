@@ -20,25 +20,19 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
     const navigate = useNavigate();
     const { addToCart } = useCart();
 
-    // const handleFavoriteClick = (event: React.MouseEvent) => {
-    //     event.stopPropagation();
-    //     setLiked(!liked); // Toggle favorite state
-    //     addToCart({ image, title, text, rate, del });
-        
-
-    //     if (!liked) {
-    //         setShowConfetti(true);
-    //         setTimeout(() => setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
-    //     }
-    // };
-
+    
     const handleFavoriteClick = (event: React.MouseEvent) => {
         event.stopPropagation();
-        setLiked(!liked);
-        addToCart({ image,title,text,rate,del});
-    }
+        setLiked(!liked); // Toggle favorite state
+        addToCart({ image, title, text, rate, del });
+        
 
-   
+        if (!liked) {
+            setShowConfetti(true);
+            setTimeout(() => setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
+        }
+    };
+
 
     const handleIconClick = (event: React.MouseEvent) => {
         event.stopPropagation();  // Prevent card click

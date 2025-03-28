@@ -1,5 +1,4 @@
 import { AppBar, Avatar, Box, Button, Card, CardContent, CardMedia, Grid, LinearProgress, Rating,  Typography } from '@mui/material';
-// import React from 'react'
 import CustomProductCard from '../CustomComponents/CustomProductCard';
 import l1 from '../assets/l1.svg';
 import l2 from '../assets/l2.svg';
@@ -13,46 +12,21 @@ import b1 from '../assets/b1.jpg';
 import b2 from '../assets/b2.jpg';
 import b3 from '../assets/b3.jpg';
 import b4 from '../assets/b4.jpg';
-import NewProduct from '../CustomComponents/NewProduct';
 import a1 from '../assets/a10.jpg';
 import a2 from '../assets/a2.jpg';
-import a3 from '../assets/a3.jpg';
 import a4 from '../assets/a4.jpg';
-import a5 from '../assets/a5.jpg';
-import a6 from '../assets/a6.jpg';
-import a7 from '../assets/a7.jpg';
 import a8 from '../assets/a8.jpg';
-import a9 from '../assets/a9.jpg';
-import a10 from '../assets/a10.jpg';
-import a11 from '../assets/a11.jpg';
-import a12 from '../assets/a7.jpg';
 
 
 
 
-
-
-// const newProduct = [
-//   { id:1,icons:a1, name:'JACKET', text:'Mens Winter Leathers Jackets',rate:48.00,delete:75.00},
-//   { id:2,icons:a2, name:'SHIRT', text:'Pure Garment Dyed Cotton Shirt',rate:45.00,delete:56.00},
-//   { id:3,icons:a3, name:'JACKET', text:'Mens Yarn Fleece Full-Zip Jacket',rate:58.00,delete:65.00},
-//   { id:4,icons:a4, name:'SKIRT', text:'Black Floral Wrap Midi Skirt',rate:25.00,delete:35.00},
-//   { id:5,icons:a5, name:'CASUAL', text:'Casual Mens Browns Shoes',rate:99.00,delete:105.00},
-//   { id:6,icons:a6, name:'WATCHES', text:'Pocket Watch Leather Pouch',rate:150.00,delete:170.00},
-//   { id:7,icons:a7, name:'WATCHES', text:'Smart Watches Vital Plus',rate:100.00,delete:120.00},
-//   { id:8,icons:a8, name:'PARTY WEAR', text:'Womens Party Wear Shoes',rate:25.00,delete:30.00},
-//   { id:9,icons:a9, name:'JACKET', text:'Mens Winter Leathers Jackets',rate:48.00,delete:75.00},
-//   { id:10,icons:a10, name:'SPORTS', text:'Trekking & Running Shoes - Black',rate:58.00,delete:64.00},
-//   { id:11,icons:a11, name:'FORMAL', text:'Mens Leathers Formal Wear shoes',rate:50.00,delete:65.00},
-//   { id:12,icons:a12, name:'FORMAL', text:'Mens Leathers Formal Wear shoes',rate:50.00,delete:65.00},
-// ]
 
 
 const products = [
   {
     id: 1,
     name: "Baby Fabric Shoes",
-    image: b1, // Replace with actual image URL
+    image: b1, 
     rating: 5,
     originalPrice: "$5.00",
     discountedPrice: "$4.00",
@@ -60,7 +34,7 @@ const products = [
   {
     id: 2,
     name: "Men's Hoodies T-Shirt",
-    image: b2, // Replace with actual image URL
+    image: b2, 
     rating: 4.5,
     originalPrice: "$17.00",
     discountedPrice: "$7.00",
@@ -68,7 +42,7 @@ const products = [
   {
     id: 3,
     name: "Girls T-Shirt",
-    image: b3, // Replace with actual image URL
+    image: b3, 
     rating: 5,
     originalPrice: "$5.00",
     discountedPrice: "$3.00",
@@ -76,7 +50,7 @@ const products = [
   {
     id: 4,
     name: "Woolen Hat For Men",
-    image: b4, // Replace with actual image URL
+    image: b4, 
     rating: 5,
     originalPrice: "$15.00",
     discountedPrice: "$12.00",
@@ -90,10 +64,6 @@ const newArrivals = [
   { icon:a2,title: 'Clothes', text: "Girls Pnk Embro Dell", rate: 61.00, delete: 9.00 },
   { icon:a8,title: 'Clothes', text: "Black Floral Wrap", rate: 76.00, delete: 25.00 },
   { icon:a4,title: 'Mens Fashion', text: "Pure Garment Dye", rate: 68.00, delete: 31.00 },
-  // { icon:a1,title: 'Winter Wear', text:"MEN Yarn Fleece Fluid", rate: 61.00, delete:11.00},
-  // { icon:a1,title: 'Winter Wear', text:"Mens Winter Leather", rate: 32.00, delete:20.00},
-  // { icon:a1,title: 'Jackets', text:"Mens Winter Leather", rate: 50.00, delete:25.00},
-  // { icon:a1,title: 'Shorts', text:"Better Basics French", rate: 20.00, delete:10.00},
 ];
 
 

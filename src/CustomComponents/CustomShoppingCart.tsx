@@ -1,12 +1,12 @@
 import { Grid, Card, CardMedia, CardContent, Stack, Typography, Box, IconButton } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useCart } from '../storage/CartProvider';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const CustomShoppingCart = () => {
     // const location = useLocation();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // const { image, title, text, rate, del } = location.state || {};
     const { cart, setCart } = useCart();
 
@@ -75,12 +75,6 @@ const CustomShoppingCart = () => {
                         </Card>
                     </Grid>
                 ))}
-
-                {/* Right Section - 4 Columns */}
-                {/* <Grid item xs={4} sx={{ border: '1px solid #ddd', p: 2 }}>
-                    <Typography variant="h6">Right Section (4 Columns)</Typography>
-                    <Typography variant="body2">Hello Everyone</Typography>
-                </Grid> */}
             </Grid>
 
         </div>

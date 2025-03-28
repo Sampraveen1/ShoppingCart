@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { TextField, Button, Typography, Paper, Grid, Box } from "@mui/material";
-import login from '../assets/Home2.jpg';
+import { TextField, Button, Typography, Paper,  Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 

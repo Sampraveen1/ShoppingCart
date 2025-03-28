@@ -1,9 +1,7 @@
-import { Favorite } from '@mui/icons-material';
-import { Card, CardMedia, CardContent, Typography, Rating, Box, IconButton, Grid, AppBar, Toolbar, Button } from '@mui/material';
+import {  Typography, Grid, AppBar, Toolbar, Button } from '@mui/material';
 import { useCart } from '../storage/CartProvider';
-import ConfettiExplosion from 'react-confetti-explosion';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import NewProduct from '../CustomComponents/NewProduct';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -20,29 +18,27 @@ const navItems = [
 
 
 const LikePage = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const navigate = useNavigate();
-    const { image, title, text, rate, del } = location.state || {};
+    // const { image, title, text, rate, del } = location.state || {};
     const { cart } = useCart();
-    const [showConfetti, setShowConfetti] = useState(false);
-    const [showIcons, setShowIcons] = useState(false);
-    const [liked, setLiked] = useState(false);
-    const { addToCart } = useCart();
+    const [_showConfetti, _setShowConfetti] = useState(false);
+    const [_showIcons, _setShowIcons] = useState(false);
+    const [_liked, _setLiked] = useState(false);
+    // const { addToCart } = useCart();
 
-    const handleFavoriteClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
-        addToCart({ image, title, text, rate, del });
-        setLiked(!liked); // Toggle favorite state
+    // const handleFavoriteClick = (event: React.MouseEvent) => {
+    //     event.stopPropagation();
+    //     addToCart({ image, title, text, rate, del });
+    //     setLiked(!liked); // Toggle favorite state
 
-        if (!liked) {
-            setShowConfetti(true);
-            setTimeout(() => setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
-        }
-    };
+    //     if (!liked) {
+    //         setShowConfetti(true);
+    //         setTimeout(() => setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
+    //     }
+    // };
 
-    const handleClick = () => {
-        navigate('/layout/product-details', { state: { image, title, text, rate, del } });
-    };
+
 
 
     return (
