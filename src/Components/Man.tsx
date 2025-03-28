@@ -1,0 +1,124 @@
+import NewProduct from '../CustomComponents/NewProduct';
+import m1 from '../assets/m1.jpg';
+import m2 from '../assets/m2.jpg';
+import m3 from '../assets/m3.jpg';
+import m4 from '../assets/m4.jpg';
+import m5 from '../assets/m5.jpg';
+import m6 from '../assets/m6.jpg';
+import m7 from '../assets/m7.jpg';
+import m8 from '../assets/m8.jpg';
+import m9 from '../assets/m9.jpg';
+import m10 from '../assets/m10.jpg';
+import m11 from '../assets/m11.jpeg';
+import m12 from '../assets/m12.jpeg';
+import m13 from '../assets/m13.jpeg';
+import m14 from '../assets/m14.jpeg';
+import m15 from '../assets/m15.jpeg';
+import { AppBar,Button, Grid, Toolbar, Typography } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
+
+
+const menCollection = [
+    { id: 1, icons: m1, name: 'JACKET', text: 'Mens Winter Leathers Jackets Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 48.00, delete: 75.00 },
+    { id: 2, icons: m2, name: 'SHIRT', text: 'Pure Garment Dyed Cotton Shirt Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 45.00, delete: 56.00 },
+    { id: 3, icons: m3, name: 'JACKET', text: 'Mens Yarn Fleece Full-Zip Jacket Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 65.00 },
+    { id: 4, icons: m4, name: 'SKIRT', text: 'Black Floral Wrap Midi Skirt Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 25.00, delete: 35.00 },
+    { id: 5, icons: m5, name: 'CASUAL', text: 'Casual Mens Browns Shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 99.00, delete: 105.00 },
+    { id: 6, icons: m6, name: 'WATCHES', text: 'Pocket Watch Leather Pouch Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 150.00, delete: 170.00 },
+    { id: 7, icons: m7, name: 'WATCHES', text: 'Smart Watches Vital Plus Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 100.00, delete: 120.00 },
+    { id: 8, icons: m8, name: 'PARTY WEAR', text: 'Womens Party Wear Shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 25.00, delete: 30.00 },
+    { id: 9, icons: m9, name: 'JACKET', text: 'Mens Winter Leathers Jackets Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 48.00, delete: 75.00 },
+    { id: 10, icons: m10, name: 'SPORTS', text: 'Trekking & Running Shoes - Black Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 64.00 },
+    { id: 11, icons: m11, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+    { id: 12, icons: m12, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+    { id: 13, icons: m13, name: 'SPORTS', text: 'Trekking & Running Shoes - Black Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 64.00 },
+    { id: 14, icons: m14, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+    { id: 15, icons: m15, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+]
+
+
+const navItems = [
+    { label: "HOME", path: "/layout/mainPage" },
+    { label: "MEN'S", path: "/layout/man" },
+    { label: "WOMEN'S", path: "/layout/women" },
+    { label: "KIDS", path: "/layout/kids" },
+    { label: "GLASSESS", path: "/layout/glassess" },
+];
+
+
+
+const Man = () => {
+
+    const navigate = useNavigate();
+
+    return (
+        <div>
+            <Grid
+                container
+                alignItems="center"  // Align items vertically in the center
+                justifyContent="space-between" // Space between buttons & navbar
+            // sx={{ padding: "5px 20px" }} // Add padding for better spacing
+            >
+                {/* Back & Forward Buttons */}
+                <Grid item >
+                    <Button sx={{ color: "black", marginRight: "-10px" }} onClick={() => navigate(-1)} startIcon={<ArrowBackIcon />} />
+                    <Button sx={{ color: "black", marginLeft: "-10px" }} onClick={() => navigate(1)} startIcon={<ArrowForwardIcon />} />
+                </Grid>
+
+                {/* Centered Navigation Items */}
+                <Grid item xs sx={{ mr: 12 }}>
+                    <AppBar
+                        position="static"
+                        sx={{
+                            background: "white",
+                            color: "black",
+                            boxShadow: "none"
+                        }}
+                    >
+                        <Toolbar sx={{ justifyContent: "center", gap: 4 }}>
+                            {navItems.map((item, index) => (
+                                <Typography
+                                    key={index}
+                                    variant="body1"
+                                    onClick={() => navigate(item.path)}
+                                    sx={{
+                                        fontWeight: "bold",
+                                        fontSize: "14px",
+                                        color: "#000",
+                                        cursor: "pointer",
+                                        "&:hover": {
+                                            color: "#1976D2",
+                                            textDecoration: "underline"
+                                        }
+                                    }}
+                                >
+                                    {item.label}
+                                </Typography>
+                            ))}
+                        </Toolbar>
+                    </AppBar>
+                </Grid>
+            </Grid>
+
+            
+
+        
+                <Grid container gap={3} sx={{ display: 'flex', p: 5, justifyContent: 'center' }}>
+                    {menCollection.map((item, index) => (
+                        <NewProduct key={index} image={item.icons} title={item.name} text={item.text} rate={item.rate} del={item.delete} />
+                    ))}
+                </Grid>
+          
+        
+        </div>
+
+    )
+}
+
+export default Man;

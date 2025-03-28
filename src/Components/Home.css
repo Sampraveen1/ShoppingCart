@@ -1,0 +1,10 @@
+.css-11nsb57-MuiGrid-root>.MuiGrid-item {
+    padding-top: 0px;
+}
+
+@media (min-width: 600px) {
+    .css-1i46x4j-MuiToolbar-root {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
