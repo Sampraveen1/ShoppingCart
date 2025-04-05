@@ -1,11 +1,10 @@
 import { Box, Container, Typography, Grid } from '@mui/material';
-import logo1 from '../assets/logo1.png';
 import './Footer.css';
 import { LocationOn, Phone, Email } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <div>
+    <div >
 
       <Box sx={{ bgcolor: "#212121", color: "#fff", py: 5, fontSize: "14px", mt: 5 }}>
         {/* Brand Directory */}
@@ -38,7 +37,7 @@ const Footer = () => {
                 { title: "POPULAR ", links: ["Fashion", "Electronic", "Cosmetic", "Health", "Watches"] },
                 { title: "PRODUCTS", links: ["Prices Drop", "New Products", "Best Sales", "Contact Us", "Sitemap"] },
                 { title: "OUR COMPANY", links: ["Delivery", "Legal Notice", "Terms & Conditions", "About Us", "Secure Payment"] },
-                { title: "SERVICES", links: ["Prices Drop", "New Products", "Best Sales", "Contact Us", "Sitemap"] },
+                { title: "SERVICES", links: ["Prices Drop", "New Products", "Best Sales", "Contact Us", "Sitemap"] }
               ].map((section, index) => (
                 <Grid item xs={12} sm={6} md={2} key={index}>
                   <Typography sx={{ fontWeight: "bold", borderBottom: "2px solid #ff8f9c", pb: 1, mb: 2 }}>
@@ -78,14 +77,8 @@ const Footer = () => {
 
 
       <Grid >
-        <Box sx={{ bgcolor: "#212121", color: "#bbb", textAlign: "center", py: 3, borderTop: "1px solid #444" }}>
+        <Box sx={{ bgcolor: "#fff", color: "black", textAlign: "center", height:'20px' }}>
           <Container>
-            {/* Payment Icons */}
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 2 }}>
-              <img src={logo1} style={{ height: 30, borderRadius: 5, background: "#fff", padding: "5px" }} />
-            </Box>
-
-            {/* Copyright Text */}
             <Typography variant="body2">Copyright © Anon All Rights Reserved.</Typography>
           </Container>
         </Box>

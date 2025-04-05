@@ -8,13 +8,13 @@ import Glassess from './Glassess';
 import CustomShowPage from '../CustomComponents/CustomShowPage';
 import CustomShoppingCart from '../CustomComponents/CustomShoppingCart';
 import CustomLikePage from './LikePage';
-import Login from './Login';
+import Login from '../auth/Login';
+
 
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
       <Route path="/" element={<Navigate to="/layout/mainPage" />} />
       <Route path="layout" element={<MainLayout />}>
         <Route path="mainPage" element={<MainPage />} />
@@ -26,6 +26,7 @@ const Router = () => {
         <Route path="shoppingCart" element={<CustomShoppingCart />} />
         <Route path="like-page" element={<CustomLikePage />} />
       </Route>
+      <Route path="/login" element={<Login />} />
     </Routes>
   )
 }

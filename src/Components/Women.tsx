@@ -39,6 +39,7 @@ const womenCollection = [
     { id: 13, icons: w13, name: 'SPORTS', text: 'Trekking & Running Shoes - Black Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 64.00 },
     { id: 14, icons: w14, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
     { id: 15, icons: w15, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+    { id: 16, icons: w15, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
 ]
 
 const navItems = [
@@ -57,7 +58,7 @@ const Women = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div style={{marginTop:'60px'}}>
             <Grid
                 container
                 alignItems="center"  // Align items vertically in the center
@@ -104,17 +105,6 @@ const Women = () => {
                     </AppBar>
                 </Grid>
             </Grid>
-
-            {/* <Grid item >
-                    <Button sx={{ color: 'black' }} onClick={() => navigate(-1)} startIcon={<ArrowBackIcon />}></Button>
-                    <Button sx={{ color: 'black' }} onClick={() => navigate(-1)} startIcon={<ArrowForwardIcon />}></Button>
-                </Grid>
-                <Grid item>
-
-
-                </Grid> */}
-
-
 
             <Grid container gap={3} sx={{ display: 'flex', p: 5, justifyContent: 'center' }}>
                 {womenCollection.map((item, index) => (

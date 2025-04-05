@@ -68,7 +68,7 @@ const Home = () => {
 
 
     return (
-        <div style={{ paddingLeft: "50px", paddingRight: "50px" }}>
+        <div style={{ paddingLeft: "50px", paddingRight: "50px",marginTop:'60px' }}>
             <Box sx={{ position: "relative" }} onMouseLeave={() => setShowCategories(false)}>
           
                 <AppBar position="static" sx={{ background: "white", color: "black", boxShadow: "none" }}>

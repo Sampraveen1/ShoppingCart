@@ -40,6 +40,7 @@ const menCollection = [
     { id: 13, icons: m13, name: 'SPORTS', text: 'Trekking & Running Shoes - Black Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 64.00 },
     { id: 14, icons: m14, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
     { id: 15, icons: m15, name: 'FORMAL', text: 'Mens Leathers Formal Wear shoes Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 50.00, delete: 65.00 },
+    { id: 16, icons: m13, name: 'SPORTS', text: 'Trekking & Running Shoes - Black Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet iure harum quo!', rate: 58.00, delete: 64.00 },
 ]
 
 
@@ -58,7 +59,7 @@ const Man = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div style={{marginTop:'60px'}}>
             <Grid
                 container
                 alignItems="center"  // Align items vertically in the center

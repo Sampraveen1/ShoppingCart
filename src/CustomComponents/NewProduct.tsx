@@ -19,13 +19,14 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
     const [showConfetti, setShowConfetti] = useState(false);
     const navigate = useNavigate();
     const { addToCart } = useCart();
+    const { toggleFavorite } = useCart();
+    // const [favorites, setFavorites] = useState([]);
 
-    
+
     const handleFavoriteClick = (event: React.MouseEvent) => {
         event.stopPropagation();
         setLiked(!liked); // Toggle favorite state
-        addToCart({ image, title, text, rate, del });
-        
+        toggleFavorite({ image, title, text, rate, del });
 
         if (!liked) {
             setShowConfetti(true);
@@ -34,9 +35,15 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
     };
 
 
-    const handleIconClick = (event: React.MouseEvent) => {
+    const handleShoppingCart = (event: React.MouseEvent) => {
         event.stopPropagation();  // Prevent card click
+        addToCart({ image, title, text, rate, del });
     };
+
+
+    const handleShareClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+    }
 
     const handleClick = () => {
         navigate('/layout/product-details', { state: { image, title, text, rate, del } });
@@ -44,7 +51,7 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
 
     return (
         <Card
-            sx={{ maxWidth: 179, borderRadius: 3, boxShadow: 2, p: 1, position: "relative", cursor: "pointer", transition: "box-shadow 0.3s ease-in-out", "&:hover": { boxShadow: 5, } }}
+            sx={{ maxWidth: 270, borderRadius: 3, boxShadow: 2, p: 1, position: "relative", cursor: "pointer", transition: "box-shadow 0.3s ease-in-out", "&:hover": { boxShadow: 5, } }}
             onClick={handleClick}
             onMouseEnter={() => setShowIcons(true)}
             onMouseLeave={() => setShowIcons(false)}
@@ -54,8 +61,10 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
                 image={image}
                 alt={title}
                 sx={{
+                    width: '100%',
                     height: 180,
                     objectFit: 'contain',
+                    background: 'liteGrey',
                     transition: 'transform 0.3s ease-in-out',
                     "&:hover": {
                         transform: "scale(1.2)",
@@ -63,38 +72,46 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
                     }
                 }}
             />
+            {showIcons &&
+                <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column' }}>
+                    <div style={{ position: "relative" }}>
+                        {showConfetti && (
+                            <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
+                                <ConfettiExplosion
+                                    force={0.3}           // Lower force for a subtle effect
+                                    duration={1200}       // Shorter explosion duration
+                                    particleCount={15}    // Fewer confetti pieces
+                                    width={200}           // Smaller area for explosion
+                                />
+                            </div>
+                        )}
+                        <IconButton
+                            size="small"
+                            sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                            onClick={handleFavoriteClick}
+                        >
+                            <Favorite sx={{ color: liked ? "red" : "inherit" }} />
+                        </IconButton>
+                    </div>
 
-            <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column', opacity: showIcons ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
-
-                <IconButton size="small" sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }} onClick={handleIconClick}>
-                    <Share />
-                </IconButton>
-
-                <div style={{ position: "relative" }}>
-                    {showConfetti && (
-                        <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
-                            <ConfettiExplosion
-                                force={0.3}           // Lower force for a subtle effect
-                                duration={1200}       // Shorter explosion duration
-                                particleCount={15}    // Fewer confetti pieces
-                                width={200}           // Smaller area for explosion
-                            />
-                        </div>
-                    )}
                     <IconButton
                         size="small"
                         sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                        onClick={handleFavoriteClick}
+                        onClick={handleShoppingCart}
                     >
-                        <Favorite sx={{ color: liked ? "red" : "inherit" }} />
+                        <ShoppingCart />
+                    </IconButton>
+
+                    <IconButton
+                        size="small"
+                        sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                        onClick={handleShareClick}
+                    >
+                        <Share />
                     </IconButton>
                 </div>
+            }
 
-                <IconButton size="small" sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }} onClick={handleIconClick}>
-                    <ShoppingCart />
-                </IconButton>
-
-            </div>
 
 
             <CardContent>

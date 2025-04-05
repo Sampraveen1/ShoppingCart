@@ -1,4 +1,4 @@
-import {  Typography, Grid, AppBar, Toolbar, Button } from '@mui/material';
+import { Typography, Grid, AppBar, Toolbar, Button } from '@mui/material';
 import { useCart } from '../storage/CartProvider';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +21,7 @@ const LikePage = () => {
     // const location = useLocation();
     const navigate = useNavigate();
     // const { image, title, text, rate, del } = location.state || {};
-    const { cart } = useCart();
+    const { favorites } = useCart();
     const [_showConfetti, _setShowConfetti] = useState(false);
     const [_showIcons, _setShowIcons] = useState(false);
     const [_liked, _setLiked] = useState(false);
@@ -30,11 +30,11 @@ const LikePage = () => {
     // const handleFavoriteClick = (event: React.MouseEvent) => {
     //     event.stopPropagation();
     //     addToCart({ image, title, text, rate, del });
-    //     setLiked(!liked); // Toggle favorite state
+    //     _setLiked(!liked); // Toggle favorite state
 
     //     if (!liked) {
-    //         setShowConfetti(true);
-    //         setTimeout(() => setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
+    //         _setShowConfetti(true);
+    //         setTimeout(() => _setShowConfetti(false), 1500); // Hide confetti after 1.5 seconds
     //     }
     // };
 
@@ -42,21 +42,28 @@ const LikePage = () => {
 
 
     return (
-        <Grid  spacing={2}>
-            <Grid container spacing={2} alignItems="center" justifyContent="space-between">
+        <Grid spacing={2} sx={{marginTop:'60px'}}>
+            <Grid container spacing={2} alignItems="center">
                 {/* Navigation Buttons */}
-                <Grid item >
+                <Grid item>
                     <Button sx={{ color: "black", marginRight: "-10px" }} onClick={() => navigate(-1)} startIcon={<ArrowBackIcon />} />
                     <Button sx={{ color: "black", marginLeft: "-10px" }} onClick={() => navigate(1)} startIcon={<ArrowForwardIcon />} />
                 </Grid>
 
-                {/* Navigation Bar */}
+                {/* Navigation Bar - Centered navItems */}
                 <Grid item xs sx={{ flexGrow: 1 }}>
                     <AppBar
                         position="static"
                         sx={{ background: "white", color: "black", boxShadow: "none" }}
                     >
-                        <Toolbar sx={{ justifyContent: "center", gap: 4 }}>
+                        <Toolbar
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",  // Centers horizontally
+                                alignItems: "center",      // Centers vertically
+                                gap: 4
+                            }}
+                        >
                             {navItems.map((item, index) => (
                                 <Typography
                                     key={index}
@@ -81,21 +88,22 @@ const LikePage = () => {
                 </Grid>
             </Grid>
 
+
             {/* Title */}
-            <Grid item xs={12} sx={{ textAlign: "center", my: 2}}>
+            <Grid item xs={12} sx={{ textAlign: "center", my: 2 }}>
                 <Typography variant="h5" fontWeight="500">
                     Recently Liked Items
                 </Typography>
             </Grid>
 
             {/* Cart Items */}
-            {cart.length === 0 ? (
+            {favorites.length === 0 ? (
                 <Grid item xs={12} sx={{ textAlign: "center" }}>
                     <Typography>Your cart is empty</Typography>
                 </Grid>
             ) : (
                 <Grid container gap={3} sx={{ display: "flex", p: 5, justifyContent: "center" }}>
-                    {cart.map((item:any, index:any) => (
+                    {favorites.map((item: any, index: any) => (
                         <NewProduct
                             key={index}
                             image={item.image}
@@ -113,4 +121,5 @@ const LikePage = () => {
 };
 
 export default LikePage;
+
 
