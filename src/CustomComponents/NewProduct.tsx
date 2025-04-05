@@ -14,7 +14,7 @@ interface NewProductProps {
 }
 
 const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }) => {
-    const [showIcons, setShowIcons] = useState(false);
+    // const [showIcons, setShowIcons] = useState(true);
     const [liked, setLiked] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
     const navigate = useNavigate();
@@ -53,8 +53,7 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
         <Card
             sx={{ maxWidth: 270, borderRadius: 3, boxShadow: 2, p: 1, position: "relative", cursor: "pointer", transition: "box-shadow 0.3s ease-in-out", "&:hover": { boxShadow: 5, } }}
             onClick={handleClick}
-            onMouseEnter={() => setShowIcons(true)}
-            onMouseLeave={() => setShowIcons(false)}
+            
         >
             <CardMedia
                 component="img"
@@ -72,45 +71,48 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
                     }
                 }}
             />
-            {showIcons && (
-            <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column' }}>
-                <div style={{ position: "relative" }}>
-                    {showConfetti && (
-                        <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
-                            <ConfettiExplosion
-                                force={0.3}
-                                duration={1200}
-                                particleCount={15}
-                                width={200}
-                            />
-                        </div>
-                    )}
+            
+                <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column' }}>
+                    <div style={{ position: "relative" }}>
+                        {showConfetti && (
+                            <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
+                                <ConfettiExplosion
+                                    force={0.3}
+                                    duration={1200}
+                                    particleCount={15}
+                                    width={200}
+                                />
+                            </div>
+                        )}
+                        <IconButton
+                            size="small"
+                            sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                            onClick={handleFavoriteClick}
+                        >
+                            <Favorite sx={{ color: liked ? "red" : "inherit" }} />
+                        </IconButton>
+                    </div>
+
                     <IconButton
                         size="small"
                         sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                        onClick={handleFavoriteClick}
+                        onClick={handleShoppingCart}
                     >
-                        <Favorite sx={{ color: liked ? "red" : "inherit" }} />
+                        <ShoppingCart />
+                    </IconButton>
+
+                    <IconButton
+                        size="small"
+                        sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                        onClick={handleShareClick}
+                    >
+                        <Share />
                     </IconButton>
                 </div>
+           
 
-                <IconButton
-                    size="small"
-                    sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                    onClick={handleShoppingCart}
-                >
-                    <ShoppingCart />
-                </IconButton>
 
-                <IconButton
-                    size="small"
-                    sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                    onClick={handleShareClick}
-                >
-                    <Share />
-                </IconButton>
-            </div>
-            )}
+
 
 
 
