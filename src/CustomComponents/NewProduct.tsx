@@ -72,45 +72,46 @@ const NewProduct: React.FC<NewProductProps> = ({ image, title, text, rate, del }
                     }
                 }}
             />
-            {showIcons &&
-                <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column' }}>
-                    <div style={{ position: "relative" }}>
-                        {showConfetti && (
-                            <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
-                                <ConfettiExplosion
-                                    force={0.3}           // Lower force for a subtle effect
-                                    duration={1200}       // Shorter explosion duration
-                                    particleCount={15}    // Fewer confetti pieces
-                                    width={200}           // Smaller area for explosion
-                                />
-                            </div>
-                        )}
-                        <IconButton
-                            size="small"
-                            sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                            onClick={handleFavoriteClick}
-                        >
-                            <Favorite sx={{ color: liked ? "red" : "inherit" }} />
-                        </IconButton>
-                    </div>
-
+            {showIcons && (
+            <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 8, flexDirection: 'column' }}>
+                <div style={{ position: "relative" }}>
+                    {showConfetti && (
+                        <div style={{ position: "absolute", left: "5px", top: "-10px" }}>
+                            <ConfettiExplosion
+                                force={0.3}
+                                duration={1200}
+                                particleCount={15}
+                                width={200}
+                            />
+                        </div>
+                    )}
                     <IconButton
                         size="small"
                         sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                        onClick={handleShoppingCart}
+                        onClick={handleFavoriteClick}
                     >
-                        <ShoppingCart />
-                    </IconButton>
-
-                    <IconButton
-                        size="small"
-                        sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
-                        onClick={handleShareClick}
-                    >
-                        <Share />
+                        <Favorite sx={{ color: liked ? "red" : "inherit" }} />
                     </IconButton>
                 </div>
-            }
+
+                <IconButton
+                    size="small"
+                    sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                    onClick={handleShoppingCart}
+                >
+                    <ShoppingCart />
+                </IconButton>
+
+                <IconButton
+                    size="small"
+                    sx={{ bgcolor: "transparent", ":hover": { bgcolor: "grey.200" } }}
+                    onClick={handleShareClick}
+                >
+                    <Share />
+                </IconButton>
+            </div>
+            )}
+
 
 
 
